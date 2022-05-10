@@ -8,49 +8,6 @@ function onScroll() {
   showNavOnScroll()
   showBackToTopButtonOnScroll()
 
-  activateMenuAtCurrentSection(home)
-  activateMenuAtCurrentSection(services)
-  activateMenuAtCurrentSection(about)
-  activateMenuAtCurrentSection(contact)
-}
-
-function activateMenuAtCurrentSection(section) {
-  // linha alto
-  const targetLine = scrollY + innerHeight / 2
-
-  // verificar se a seção passou da linha
-  // quais dados vou precisar ?
-
-  // o topo da seçao
-  const sectionTop = section.offsetTop
-
-  // a altura da seçao
-  const sectionHeight = section.offsetHeight
-
-  // o topo da seçao chegou ou ultrapassou a linha alto
-  const sectionTopReachOrPassedTargetline = targetLine >= sectionTop
-
-  // Informaçoes  dos dados e da logica
-  // verificar se a base esta abaixo da linha alvo
-  //quais dados vou precisar?
-
-  // a seçao termina onde ?
-  const sectionEndAt = sectionTop + sectionHeight
-
-  // ofinal da seçao passou da linha alvo
-  const sectionEndPassedTargetline = sectionEndAt <= targetLine
-
-  // limites da seção
-  const sectionBoundaries =
-    sectionTopReachOrPassedTargetline && !sectionEndPassedTargetline
-
-  const sectionId = section.gettAtribute('id')
-  const menuElement = document.querySelector(`.menu a [href*=${sectionId}]`)
-
-  menuElement.classList.remove('active')
-  if (sectionBoundaries) {
-    menuElement.classList.add('active')
-  }
 }
 
 function showNavOnScroll() {
